@@ -193,7 +193,7 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-                child: const Text('Zerar Contagem', style: TextStyle(fontSize: 16)),
+                child: const Text('Zerar', style: TextStyle(fontSize: 16)),
               ),
             ],
           ),
