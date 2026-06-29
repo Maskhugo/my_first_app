@@ -186,7 +186,7 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
               ElevatedButton(
                 onPressed: _reset,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF666666),
+                  backgroundColor: const Color.fromARGB(255, 178, 0, 0),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   shape: RoundedRectangleBorder(
