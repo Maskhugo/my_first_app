@@ -175,7 +175,7 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Divider(thickness: 1),
                     ),
-                    _buildMetricRow('Projeção:', '$_projectedPerHour inputs/hora', true),
+                    _buildMetricRow('Projeção por hora:', '$_projectedPerHour inputs/hora', true),
                   ],
                 ),
               ),
