@@ -83,7 +83,11 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
+<<<<<<< HEAD
                   color: Color.fromARGB(255, 8, 0, 255),
+=======
+                  color: Color.fromARGB(255, 221, 0, 0),
+>>>>>>> 23adf1c6377aba385f26a0f7b10f816a8cd69cc7
                 ),
                 textAlign: TextAlign.center,
               ),
