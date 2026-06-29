@@ -89,7 +89,7 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
               ),
               const SizedBox(height: 10),
               const Text(
-                'Toque no quadro verde para registrar um input.',
+                'Toque no quadro verde para Iniciar.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16, color: Color(0xFF333333)),
               ),
@@ -214,8 +214,9 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
         const SizedBox(width: 10),
         Text(
           value,
+          textAlign: .center
           style: TextStyle(
-            fontSize: isHighlight ? 32 : 22,
+            fontSize: isHighlight ? 100 : 22,
             fontWeight: FontWeight.bold,
             color: isHighlight ? const Color(0xFFD32F2F) : const Color(0xFF333333),
           ),
