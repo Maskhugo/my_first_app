@@ -227,7 +227,7 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
           value,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: isHighlight ? 100 : 22,
+            fontSize: isHighlight ? 30 : 22,
             fontWeight: FontWeight.bold,
             color: isHighlight ? const Color(0xFFD32F2F) : const Color(0xFF333333),
           ),
