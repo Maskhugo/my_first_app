@@ -83,11 +83,7 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-<<<<<<< HEAD
                   color: Color.fromARGB(255, 8, 0, 255),
-=======
-                  color: Color.fromARGB(255, 221, 0, 0),
->>>>>>> 23adf1c6377aba385f26a0f7b10f816a8cd69cc7
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -199,6 +195,17 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                 ),
                 child: const Text('Zerar', style: TextStyle(fontSize: 16)),
               ),
+              
+              const SizedBox(height: 30), //espaçamento entre o botão de zerar
+
+              //Botão Sobre
+              OutlinedButton(onPressed:(){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MinhaPagina()),
+                );
+              },
+              child: const Text ('Sobre o App')),
             ],
           ),
         ),
@@ -218,7 +225,7 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
         const SizedBox(width: 10),
         Text(
           value,
-          textAlign: .center
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: isHighlight ? 100 : 22,
             fontWeight: FontWeight.bold,
@@ -227,5 +234,27 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
         ),
       ],
     );
+  }
+}
+class MinhaPagina extends StatelessWidget {
+  const MinhaPagina({super.key});
+
+
+@override
+Widget  build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: const Text('Sobre'),
+    ),
+    body: const Center(
+      child: Padding(
+        padding: EdgeInsets.all (20.0),
+        child: Text('Este App contabiliza a quantidade de inputs de um botão e mostra uma projeção de quantidade de inputs em horas.',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontSize: 18),
+        ),
+    ),
+  ),
+  );
   }
 }
