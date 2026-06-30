@@ -195,9 +195,21 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                 ),
                 child: const Text('Zerar', style: TextStyle(fontSize: 16)),
               ),
-              
+
               const SizedBox(height: 30), //espaçamento entre o botão de zerar
 
+              //Botão Resultado
+              OutlinedButton(onPressed:(){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PaginaResultado(totalInputs: _inputs),
+                  ),
+                );
+              },
+              child: const Text ('Confira seu resultado')),
+
+
+              const SizedBox(height: 30), 
               //Botão Sobre
               OutlinedButton(onPressed:(){
                 Navigator.push(
@@ -256,5 +268,41 @@ Widget  build(BuildContext context) {
     ),
   ),
   );
+  }
+}
+
+class PaginaResultado extends StatelessWidget {
+  final int totalInputs;
+
+  const PaginaResultado({super.key, required this.totalInputs});
+
+  @override
+  Widget build(BuildContext context) {String mensagem = '';
+
+    if (totalInputs == 0) {
+      mensagem = 'Você mal apertou o botão';
+    } else if (totalInputs <= 10) {
+      mensagem = 'Bom começo, mas você pode fazer melhor do que isso';
+    } else if (totalInputs <= 30) {
+      mensagem = 'Boa! agora estamos conversando';
+    } else {
+      mensagem = 'Pensa em um bicho ansioso';
+    }    
+  
+return Scaffold(
+      appBar: AppBar(
+        title: const Text('Seu Resultado'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Text(
+            mensagem,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+    );
   }
 }
