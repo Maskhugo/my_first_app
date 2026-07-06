@@ -259,12 +259,29 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                 },
                 child: const Text('Sobre o App')
               ),
+
+              const SizedBox(height: 30),
+
+
+              ElevatedButton(
+                  onPressed: () {
+                        Navigator.push(
+                           context,
+                           MaterialPageRoute(builder: (context) => const MenuPage()),
+    );
+  },
+  child: const Text('Abrir menu'),
+)
+
+
             ],
           ),
         ),
       ),
     );
   }
+
+  
 
   // Função auxiliar para construir as linhas de texto das métricas.
   // Criar métodos assim ajuda a manter a árvore de widgets mais limpa e legível.
@@ -351,6 +368,100 @@ class PaginaResultado extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class NivelPage extends StatelessWidget {
+  // A variável que vai receber o número 1, 2 ou 3 da tela anterior
+  final int nivel;
+
+  // Construtor exigindo que o parâmetro 'nivel' seja passado
+  const NivelPage({super.key, required this.nivel});
+
+  @override
+  Widget build(BuildContext context) {
+    String nomeDoNivel;
+    
+    // O switch avalia a variável 'nivel' exata e executa o bloco correspondente (case)
+    switch (nivel) {
+      case 1:
+        nomeDoNivel = 'Iniciante 🐣';
+        break; // O break impede que o código continue executando os próximos cases
+      case 2:
+        nomeDoNivel = 'Intermediário 🚶';
+        break;
+      case 3:
+        nomeDoNivel = 'Avançado 🏃';
+        break;
+      default:
+        // O default é o "fallback", acionado se nenhum dos cases acima for verdadeiro
+        nomeDoNivel = 'Desconhecido ❓';
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Detalhes do Nível'),
+      ),
+      body: Center(
+        child: Text(
+          // Mostrando a variável definida pelo switch na tela
+          nomeDoNivel, 
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
+
+class MenuPage extends StatelessWidget {
+  const MenuPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Menu de Níveis'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  // Passando o número 1
+                  MaterialPageRoute(builder: (context) => const NivelPage(nivel: 1)),
+                );
+              },
+              child: const Text('Nível 1'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  // Passando o número 2
+                  MaterialPageRoute(builder: (context) => const NivelPage(nivel: 2)),
+                );
+              },
+              child: const Text('Nível 2'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  // Passando o número 3
+                  MaterialPageRoute(builder: (context) => const NivelPage(nivel: 3)),
+                );
+              },
+              child: const Text('Nível 3'),
+            ),
+          ],
         ),
       ),
     );
