@@ -73,20 +73,23 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F9),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                '⏱️ Contador de Velocidade de Input',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 8, 0, 255),
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 20),
+                const Text(
+                  '⏱️ Contador de Velocidade de Input',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 8, 0, 255),
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
               const SizedBox(height: 10),
               const Text(
                 'Toque no quadro verde para Iniciar.',
@@ -275,7 +278,8 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
           ),
         ),
       ),
-    );
+    ),
+  );
   }
 
   Widget _buildMetricRow(String label, String value, bool isHighlight) {
