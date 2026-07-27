@@ -246,6 +246,19 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                 ),
                 const SizedBox(height: 30),
 
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ContagemPage(total: 50),
+                      ),
+                    );
+                  },
+                  child: const Text('Contagem até 50'),
+                ),
+                const SizedBox(height: 30),
+
 
                 ElevatedButton(
                   onPressed: () {
@@ -726,6 +739,37 @@ class DiaPage extends StatelessWidget {
           'Dia $dia = $nomeDoDia',
           style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
+      ),
+    );
+  }
+}
+
+class ContagemPage extends StatelessWidget {
+  final int total;
+
+  const ContagemPage({super.key, required this.total});
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Widget> linhas = [];
+
+    for (int i = 1; i <= total; i++) {
+      linhas.add(
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            'Contagem $i de $total',
+            style: const TextStyle(fontSize: 18),
+          ),
+        ),
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Contagem')),
+      body: ListView(
+        padding: const EdgeInsets.all(10.0),
+        children: linhas,
       ),
     );
   }
