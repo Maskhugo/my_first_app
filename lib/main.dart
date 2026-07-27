@@ -4,10 +4,12 @@ import 'package:flutter/services.dart';
 import 'dart:async';
 
 void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: ContadorProdutividade(),
-  ));
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ContadorProdutividade(),
+    ),
+  );
 }
 
 class ContadorProdutividade extends StatefulWidget {
@@ -90,188 +92,219 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-              const SizedBox(height: 10),
-              const Text(
-                'Toque no quadro verde para Iniciar.',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16, color: Color(0xFF333333)),
-              ),
-              const SizedBox(height: 30),
+                const SizedBox(height: 10),
+                const Text(
+                  'Toque no quadro verde para Iniciar.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, color: Color(0xFF333333)),
+                ),
+                const SizedBox(height: 30),
 
-              Focus(
-                autofocus: true,
-                onKeyEvent: (node, event) {
-                  if (event is KeyDownEvent &&
-                      event.logicalKey == LogicalKeyboardKey.space) {
-                    _registerInput();
+                Focus(
+                  autofocus: true,
+                  onKeyEvent: (node, event) {
+                    if (event is KeyDownEvent &&
+                        event.logicalKey == LogicalKeyboardKey.space) {
+                      _registerInput();
 
-                    setState(() => _isPressed = true);
-                    Future.delayed(const Duration(milliseconds: 100), () {
-                      if (mounted) setState(() => _isPressed = false);
-                    });
-                    return KeyEventResult.handled;
-                  }
-                  return KeyEventResult.ignored;
-                },
-                child: GestureDetector(
-                  onTapDown: (_) {
-                    setState(() => _isPressed = true);
-                    _registerInput();
+                      setState(() => _isPressed = true);
+                      Future.delayed(const Duration(milliseconds: 100), () {
+                        if (mounted) setState(() => _isPressed = false);
+                      });
+                      return KeyEventResult.handled;
+                    }
+                    return KeyEventResult.ignored;
                   },
-                  onTapUp: (_) => setState(() => _isPressed = false),
-                  onTapCancel: () => setState(() => _isPressed = false),
-                  child: AnimatedScale(
-                    scale: _isPressed ? 0.95 : 1.0,
-                    duration: const Duration(milliseconds: 100),
-                    child: Container(
-                      width: 300,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: _isPressed
-                            ? const Color(0xFF45A049)
-                            : const Color(0xFF4CAF50),
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 8,
-                            offset: Offset(0, 4),
-                          )
-                        ],
-                      ),
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'TOQUE AQUI',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
+                  child: GestureDetector(
+                    onTapDown: (_) {
+                      setState(() => _isPressed = true);
+                      _registerInput();
+                    },
+                    onTapUp: (_) => setState(() => _isPressed = false),
+                    onTapCancel: () => setState(() => _isPressed = false),
+                    child: AnimatedScale(
+                      scale: _isPressed ? 0.95 : 1.0,
+                      duration: const Duration(milliseconds: 100),
+                      child: Container(
+                        width: 300,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          color: _isPressed
+                              ? const Color(0xFF45A049)
+                              : const Color(0xFF4CAF50),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 8,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'TOQUE AQUI',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
 
-              const SizedBox(height: 30),
+                const SizedBox(height: 30),
 
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 5,
-                      offset: Offset(0, 2),
-                    )
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildMetricRow('Total de Inputs:', '$_inputs', true),
-                    const SizedBox(height: 10),
-                    _buildMetricRow(
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 5,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildMetricRow('Total de Inputs:', '$_inputs', true),
+                      const SizedBox(height: 10),
+                      _buildMetricRow(
                         'Tempo Decorrido:',
                         '${_elapsedSeconds.toStringAsFixed(1)} segundos',
-                        false),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: Divider(thickness: 1),
+                        false,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Divider(thickness: 1),
+                      ),
+                      _buildMetricRow(
+                        'Projeção por hora:',
+                        '$_projectedPerHour inputs/hora',
+                        true,
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+
+                // Botões de fluxo da Tarefa 4 agrupados
+                ElevatedButton(
+                  onPressed: () async {
+                    final int? metaEscolhida = await Navigator.push<int>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const EscolherMetaPage(),
+                      ),
+                    );
+                    if (metaEscolhida != null) {
+                      setState(() {
+                        _metaSelecionada = metaEscolhida;
+                      });
+                    }
+                  },
+                  child: Text(
+                    _metaSelecionada == null
+                        ? 'Definir meta'
+                        : 'Meta atual: $_metaSelecionada',
+                  ),
+                ),
+                const SizedBox(height: 10),
+
+                ElevatedButton(
+                  onPressed: _metaSelecionada == null
+                      ? null
+                      : () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  ProgressoPage(meta: _metaSelecionada!),
+                            ),
+                          );
+                        },
+                  child: const Text('Ver Progresso'),
+                ),
+                const SizedBox(height: 30),
+
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BoasVindasPage(),
+                      ),
+                    );
+                  },
+                  child: const Text('Ir para Boas-vindas'),
+                ),
+                const SizedBox(height: 30),
+
+                // Botões gerais
+                ElevatedButton(
+                  onPressed: _reset,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 178, 0, 0),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 15,
                     ),
-                    _buildMetricRow('Projeção por hora:',
-                        '$_projectedPerHour inputs/hora', true),
-                  ],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  child: const Text('Zerar', style: TextStyle(fontSize: 16)),
                 ),
-              ),
-              const SizedBox(height: 30),
+                const SizedBox(height: 10),
 
-              // Botões de fluxo da Tarefa 4 agrupados
-              ElevatedButton(
-                onPressed: () async {
-                  final int? metaEscolhida = await Navigator.push<int>(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const EscolherMetaPage()),
-                  );
-                  if (metaEscolhida != null) {
-                    setState(() {
-                      _metaSelecionada = metaEscolhida;
-                    });
-                  }
-                },
-                child: Text(_metaSelecionada == null
-                    ? 'Definir meta'
-                    : 'Meta atual: $_metaSelecionada'),
-              ),
-              const SizedBox(height: 10),
-              
-              ElevatedButton(
-                onPressed: _metaSelecionada == null
-                    ? null
-                    : () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                ProgressoPage(meta: _metaSelecionada!),
-                          ),
-                        );
-                      },
-                child: const Text('Ver Progresso'),
-              ),
-              const SizedBox(height: 30),
-
-
-ElevatedButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const BoasVindasPage()),
-    );
-  },
-  child: const Text('Ir para Boas-vindas'),
-),
-const SizedBox(height: 30),
-
-              // Botões gerais
-              ElevatedButton(
-                onPressed: _reset,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 178, 0, 0),
-                  foregroundColor: Colors.white,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MinhasCoisas(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 15,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  child: const Text(
+                    'Minhas Coisas',
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
-                child: const Text('Zerar', style: TextStyle(fontSize: 16)),
-              ),
-              const SizedBox(height: 10),
+                const SizedBox(height: 10),
 
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MinhasCoisas()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-                  foregroundColor: Colors.white,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotaPage(nota: 7),
+                      ),
+                    );
+                  },
+                  child: const Text('Ver Nota', style: TextStyle(fontSize: 16)),
                 ),
-                child: const Text('Minhas Coisas', style: TextStyle(fontSize: 16)),
-              ),
-const SizedBox(height: 10),
-              OutlinedButton(
+                const SizedBox(height: 10),
+
+                OutlinedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -281,36 +314,39 @@ const SizedBox(height: 10),
                       ),
                     );
                   },
-                  child: const Text('Confira seu resultado')),
-              const SizedBox(height: 10),
+                  child: const Text('Confira seu resultado'),
+                ),
+                const SizedBox(height: 10),
 
-              OutlinedButton(
+                OutlinedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MinhaPagina()),
+                        builder: (context) => const MinhaPagina(),
+                      ),
                     );
                   },
-                  child: const Text('Sobre o App')),
-              const SizedBox(height: 10),
+                  child: const Text('Sobre o App'),
+                ),
+                const SizedBox(height: 10),
 
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MenuPage()),
-                  );
-                },
-                child: const Text('Abrir menu'),
-              ),
-              const SizedBox(height: 30), // Espaçamento final
-            ],
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const MenuPage()),
+                    );
+                  },
+                  child: const Text('Abrir menu'),
+                ),
+                const SizedBox(height: 30), // Espaçamento final
+              ],
+            ),
           ),
         ),
       ),
-    ),
-  );
+    );
   }
 
   Widget _buildMetricRow(String label, String value, bool isHighlight) {
@@ -344,9 +380,7 @@ class MinhaPagina extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sobre'),
-      ),
+      appBar: AppBar(title: const Text('Sobre')),
       body: const Center(
         child: Padding(
           padding: EdgeInsets.all(20.0),
@@ -381,9 +415,7 @@ class PaginaResultado extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Seu Resultado'),
-      ),
+      appBar: AppBar(title: const Text('Seu Resultado')),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -422,9 +454,7 @@ class NivelPage extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Detalhes do Nível'),
-      ),
+      appBar: AppBar(title: const Text('Detalhes do Nível')),
       body: Center(
         child: Text(
           nomeDoNivel,
@@ -441,9 +471,7 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Menu de Níveis'),
-      ),
+      appBar: AppBar(title: const Text('Menu de Níveis')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -452,7 +480,9 @@ class MenuPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const NivelPage(nivel: 1)),
+                  MaterialPageRoute(
+                    builder: (context) => const NivelPage(nivel: 1),
+                  ),
                 );
               },
               child: const Text('Nível 1'),
@@ -462,7 +492,9 @@ class MenuPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const NivelPage(nivel: 2)),
+                  MaterialPageRoute(
+                    builder: (context) => const NivelPage(nivel: 2),
+                  ),
                 );
               },
               child: const Text('Nível 2'),
@@ -472,7 +504,9 @@ class MenuPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const NivelPage(nivel: 3)),
+                  MaterialPageRoute(
+                    builder: (context) => const NivelPage(nivel: 3),
+                  ),
                 );
               },
               child: const Text('Nível 3'),
@@ -490,9 +524,7 @@ class EscolherMetaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Defina uma Meta'),
-      ),
+      appBar: AppBar(title: const Text('Defina uma Meta')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -534,19 +566,19 @@ class ProgressoPage extends StatelessWidget {
     final List<Widget> linhas = [];
 
     for (int i = 1; i <= meta; i++) {
-      linhas.add(Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          'Passo $i de $meta',
-          style: const TextStyle(fontSize: 18),
+      linhas.add(
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            'Passo $i de $meta',
+            style: const TextStyle(fontSize: 18),
+          ),
         ),
-      ));
+      );
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Seu Progresso'),
-      ),
+      appBar: AppBar(title: const Text('Seu Progresso')),
       // 1. Envolvemos o ListView com o SafeArea para respeitar os limites do sistema operacional
       body: SafeArea(
         child: ListView(
@@ -556,7 +588,7 @@ class ProgressoPage extends StatelessWidget {
             left: 10.0,
             right: 10.0,
             top: 10.0,
-            bottom: 60.0, 
+            bottom: 60.0,
           ),
           children: linhas,
         ),
@@ -571,9 +603,7 @@ class BoasVindasPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Boas-vindas'),
-      ),
+      appBar: AppBar(title: const Text('Boas-vindas')),
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -594,9 +624,7 @@ class MinhasCoisas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Minhas Coisas'),
-      ),
+      appBar: AppBar(title: const Text('Minhas Coisas')),
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -609,6 +637,33 @@ class MinhasCoisas extends StatelessWidget {
             SizedBox(height: 8),
             Text('Coleção TCG'),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class NotaPage extends StatelessWidget {
+  final int nota;
+  const NotaPage({super.key, required this.nota});
+
+  @override
+  Widget build(BuildContext context) {
+    String mensagem;
+    if (nota >= 7) {
+      mensagem = 'Aprovado';
+    } else if (nota <= 5) {
+      mensagem = 'Recuperação';
+    } else {
+      mensagem = 'Reprovado';
+    }
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Resultado')),
+      body: Center(
+        child: Text(
+          mensagem,
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
     );
