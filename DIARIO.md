@@ -15,3 +15,4 @@ Task 1 - < 🟢 Fácil > - Nesta tarefa por já se familiarizar com o que fizemo
 Task 2 - < 🟢 Fácil > - Foi uma feat bacana de implementar e bater de frente com alguns dificuldades que tenho com estrutura de widgets. 
 
 Task 3 - < 🟡 Média > - Apesar de concluir a tarefa, tive alguns problemas durante o processo com case Sensitivity do dart e estrutura de widgets e hierarquia que só consegui resolver com apoio de IA.
+
