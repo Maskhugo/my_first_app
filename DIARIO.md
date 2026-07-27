@@ -16,6 +16,6 @@ Task 2 - < 🟢 Fácil > - Foi uma feat bacana de implementar e bater de frente 
 
 Task 3 - < 🟡 Média > - Apesar de concluir a tarefa, tive alguns problemas durante o processo com case Sensitivity do dart e estrutura de widgets e hierarquia que só consegui resolver com apoio de IA.
 
-Task 3 - < 🟢 Fácil > É possivel identificar uma evolução ao lidar com sintaxes e estruturas, mesmo compartilhando enfrentando problemas similares as tasks anteriores.
+Task 4 - < 🟢 Fácil > É possivel identificar uma evolução ao lidar com sintaxes e estruturas, mesmo compartilhando enfrentando problemas similares as tasks anteriores.
 
-    
+Task 5 - < 🟢 Fácil > Não gosto de ser redundante, mas é nitido como houve evolução comparado com os ultimos exercicios, com mais segurança no momento de encarar um erro de estrutura/sintaxe.
