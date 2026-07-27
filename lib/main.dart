@@ -252,6 +252,25 @@ const SizedBox(height: 30),
               ),
               const SizedBox(height: 10),
 
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MinhasCoisas()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+                  foregroundColor: Colors.white,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+                child: const Text('Minhas Coisas', style: TextStyle(fontSize: 16)),
+              ),
+const SizedBox(height: 10),
               OutlinedButton(
                   onPressed: () {
                     Navigator.push(
@@ -562,6 +581,33 @@ class BoasVindasPage extends StatelessWidget {
             Text('Olá! 👋'),
             SizedBox(height: 16),
             Text('Esta é a minha tela de treino.'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MinhasCoisas extends StatelessWidget {
+  const MinhasCoisas({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Minhas Coisas'),
+      ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Minhas 3 coisas favoritas:'),
+            SizedBox(height: 12),
+            Text('Games'),
+            SizedBox(height: 8),
+            Text('Music player'),
+            SizedBox(height: 8),
+            Text('Coleção TCG'),
           ],
         ),
       ),
