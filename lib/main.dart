@@ -224,6 +224,18 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
               ),
               const SizedBox(height: 30),
 
+
+ElevatedButton(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const BoasVindasPage()),
+    );
+  },
+  child: const Text('Ir para Boas-vindas'),
+),
+const SizedBox(height: 30),
+
               // Botões gerais
               ElevatedButton(
                 onPressed: _reset,
@@ -528,6 +540,29 @@ class ProgressoPage extends StatelessWidget {
             bottom: 60.0, 
           ),
           children: linhas,
+        ),
+      ),
+    );
+  }
+}
+
+class BoasVindasPage extends StatelessWidget {
+  const BoasVindasPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Boas-vindas'),
+      ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Olá! 👋'),
+            SizedBox(height: 16),
+            Text('Esta é a minha tela de treino.'),
+          ],
         ),
       ),
     );
