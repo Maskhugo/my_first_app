@@ -246,6 +246,20 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                 ),
                 const SizedBox(height: 30),
 
+
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DiaPage(dia: 2),
+                      ),
+                    );
+                  },
+                  child: const Text('Dia da Semana'),
+                ),
+                const SizedBox(height: 30),
+
                 // Botões gerais
                 ElevatedButton(
                   onPressed: _reset,
@@ -663,6 +677,53 @@ class NotaPage extends StatelessWidget {
       body: Center(
         child: Text(
           mensagem,
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
+
+class DiaPage extends StatelessWidget {
+  final int dia;
+
+  const DiaPage({super.key, required this.dia});
+
+  @override
+  Widget build(BuildContext context) {
+    String nomeDoDia;
+    
+    switch (dia) {
+      case 1:
+        nomeDoDia = 'Segunda-feira';
+        break;
+      case 2:
+        nomeDoDia = 'Terça-feira';
+        break;
+      case 3:
+        nomeDoDia = 'Quarta-feira';
+        break;
+      case 4:
+        nomeDoDia = 'Quinta-feira';
+        break;
+      case 5:
+        nomeDoDia = 'Sexta-feira';
+        break;
+      case 6:
+        nomeDoDia = 'Sábado';
+        break;
+      case 7:
+        nomeDoDia = 'Domingo';
+        break;
+      default:
+        nomeDoDia = 'Dia inválido';
+    }
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Dia da Semana')),
+      body: Center(
+        child: Text(
+          'Dia $dia = $nomeDoDia',
           style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
