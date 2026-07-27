@@ -7,7 +7,7 @@ Este repositório foi criado com o objetivo de centralizar e documentar meus est
 ## 🚀 Objetivo do Projeto
 
 - [ ] Praticar e dominar os principais Widgets do Flutter (Stateless e Stateful).
-- [ ] Aprender sobre gerenciamento de estado e navegação.
+- [x] Aprender sobre gerenciamento de estado e navegação.
 - [ ] Criar componentes de UI reaproveitáveis (Custom Widgets).
 - [ ] Documentar o progresso para consultas futuras e compartilhamento com o time.
 
