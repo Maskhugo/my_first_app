@@ -8,7 +8,9 @@ Task 3 - < 🔴 Dificil > - Consegui compreender a lógica dos requisitos, mas e
 
 Task 4 - < 🔴 Dificil > - dificuldades nesta tarefa envolveram um erro estrutural de sintaxe com uma chave excedente, a desorganização na indentação da árvore de widgets e problemas apara apresentar todas a linhas da lista na visualização na pagina de progresso.
 
-Tarefas de reforço:
+---
+
+##Tarefas de reforço:
 
 Task 1 - < 🟢 Fácil > - Nesta tarefa por já se familiarizar com o que fizemos nas anteriores, eu já tive um pouco mais de facilidade de concluir-la
 
@@ -19,3 +21,9 @@ Task 3 - < 🟡 Média > - Apesar de concluir a tarefa, tive alguns problemas du
 Task 4 - < 🟢 Fácil > É possivel identificar uma evolução ao lidar com sintaxes e estruturas, mesmo compartilhando enfrentando problemas similares as tasks anteriores.
 
 Task 5 - < 🟢 Fácil > Não gosto de ser redundante, mas é nitido como houve evolução comparado com os ultimos exercicios, com mais segurança no momento de encarar um erro de estrutura/sintaxe.
+
+---
+
+##Tarefas — Dados, Listas e Organização de Código
+
+Task 1 - < 🟢 Fácil > Primeira tarefa de organização em vez de nova funcionalidade: movi as telas BoasVindasPage e MinhasCoisas do main.dart para arquivos próprios dentro de lib/pages/. O aprendizado principal foi entender que o `import` é o que conecta um arquivo ao outro. No final das contas o código está começando a deixar de ser um "linguição" dificil de se localizar
