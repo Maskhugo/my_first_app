@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 
+// Cada import conecta este arquivo a uma tela que agora mora em lib/pages/.
+import 'pages/boas_vindas_page.dart';
+import 'pages/minhas_coisas_page.dart';
+
 void main() {
   runApp(
     const MaterialApp(
@@ -258,7 +262,6 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                   child: const Text('Contagem até 50'),
                 ),
                 const SizedBox(height: 30),
-
 
                 ElevatedButton(
                   onPressed: () {
@@ -624,52 +627,6 @@ class ProgressoPage extends StatelessWidget {
   }
 }
 
-class BoasVindasPage extends StatelessWidget {
-  const BoasVindasPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Boas-vindas')),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Olá! 👋'),
-            SizedBox(height: 16),
-            Text('Esta é a minha tela de treino.'),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class MinhasCoisas extends StatelessWidget {
-  const MinhasCoisas({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Minhas Coisas')),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Minhas 3 coisas favoritas:'),
-            SizedBox(height: 12),
-            Text('Games'),
-            SizedBox(height: 8),
-            Text('Music player'),
-            SizedBox(height: 8),
-            Text('Coleção TCG'),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class NotaPage extends StatelessWidget {
   final int nota;
   const NotaPage({super.key, required this.nota});
@@ -705,7 +662,7 @@ class DiaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String nomeDoDia;
-    
+
     switch (dia) {
       case 1:
         nomeDoDia = 'Segunda-feira';
@@ -767,10 +724,7 @@ class ContagemPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Contagem')),
-      body: ListView(
-        padding: const EdgeInsets.all(10.0),
-        children: linhas,
-      ),
+      body: ListView(padding: const EdgeInsets.all(10.0), children: linhas),
     );
   }
 }
