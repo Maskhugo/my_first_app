@@ -10,7 +10,7 @@ Task 4 - < 🔴 Dificil > - dificuldades nesta tarefa envolveram um erro estrutu
 
 ---
 
-##Tarefas de reforço:
+## Tarefas de reforço:
 
 Task 1 - < 🟢 Fácil > - Nesta tarefa por já se familiarizar com o que fizemos nas anteriores, eu já tive um pouco mais de facilidade de concluir-la
 
@@ -24,7 +24,7 @@ Task 5 - < 🟢 Fácil > Não gosto de ser redundante, mas é nitido como houve 
 
 ---
 
-##Tarefas — Dados, Listas e Organização de Código
+## Tarefas — Dados, Listas e Organização de Código
 
 Task 1 - < 🟢 Fácil > Primeira tarefa de organização em vez de nova funcionalidade: movi as telas BoasVindasPage e MinhasCoisas do main.dart para arquivos próprios dentro de lib/pages/. O aprendizado principal foi entender que o `import` é o que conecta um arquivo ao outro. No final das contas o código está começando a deixar de ser um "linguição" dificil de se localizar
 
@@ -35,7 +35,7 @@ A virada de chave foi entender que eu não escrevo mais um widget para cada film
 
 Task 4 - < 🟡 Média > Esse foi o desafio mais dificil até agora, consegui colocar em prática alguns conceitos que ando estudando como StatefulWidgets e setState, mas apesar de conseguir entender o código rodando, eu ainda precisei de um apoio do Claude para chegar no resultado final.
 
-Task 5 - < 🟢 fácil > Gostei bastante desta task pois colocou em pratica a questão de se preocupar com null no código, se não houvesse aquele disclaimer no exercicio provávelmente eu teria quebrado o código.
+Task 5 - < 🟡 Média > Gostei bastante desta task pois colocou em pratica a questão de se preocupar com null no código, se não houvesse aquele disclaimer no exercicio provávelmente eu teria quebrado o código.
 
-Task 5 (bônus) - < 🔴 / 🟡 / 🟢 (preencher) > Coloquei um onTap no ListTile que inverte o filme.assistido dentro do setState, então tocar no filme troca o ícone na hora — o setState não serve só para adicionar itens, serve para qualquer mudança de estado que precise aparecer na tela. A organização em arquivos já estava pronta desde a Task 2. E a diferença entre final e var: var permite trocar o valor depois, final aceita um valor só uma vez. O final vale para a caixa e não para o conteúdo, e é por isso que o meu final List<Filme> filmes aceita filmes.add(...) sem reclamar, mas recusaria filmes = [outra lista].
-
+Task bônus - < 🟡 Média > Coloquei um onTap no ListTile que inverte o filme.assistido dentro do setState, então tocar no filme troca o ícone na hora — o setState não serve só para adicionar itens, serve para qualquer mudança de estado que precise aparecer na tela.
+Sobre a diferança entre "final" e "var" en dart: var permite trocar o valor depois, final aceita um valor só uma vez. O final vale para a caixa e não para o conteúdo, e é por isso que o meu final List<Filme> filmes aceita filmes.add(...) sem reclamar, mas recusaria filmes = [outra lista].
