@@ -16,11 +16,17 @@ class ListaFilmesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Meus Filmes')),
-      body: Center(
-        child: Text(
-          'Você tem ${filmes.length} filmes na lista',
-          style: const TextStyle(fontSize: 20),
-        ),
+      // O itemBuilder roda uma vez para cada item da lista, igual a um for —
+      // mas quem chama é o Flutter, e só para os itens visíveis na tela.
+      body: ListView.builder(
+        itemCount: filmes.length,
+        itemBuilder: (context, index) {
+          final filme = filmes[index];
+          return ListTile(
+            title: Text(filme.titulo),
+            trailing: Icon(filme.assistido ? Icons.check_circle : Icons.movie),
+          );
+        },
       ),
     );
   }
