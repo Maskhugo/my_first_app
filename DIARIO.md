@@ -27,3 +27,8 @@ Task 5 - < 🟢 Fácil > Não gosto de ser redundante, mas é nitido como houve 
 ##Tarefas — Dados, Listas e Organização de Código
 
 Task 1 - < 🟢 Fácil > Primeira tarefa de organização em vez de nova funcionalidade: movi as telas BoasVindasPage e MinhasCoisas do main.dart para arquivos próprios dentro de lib/pages/. O aprendizado principal foi entender que o `import` é o que conecta um arquivo ao outro. No final das contas o código está começando a deixar de ser um "linguição" dificil de se localizar
+
+Task 2 - < 🟡 Média > Criei a classe Filme em lib/models/ e uma List<Filme> com 3 filmes na nova ListaFilmesPage. O que ficou claro é a diferença entre o molde e as cópias: a classe Filme só descreve o formato do dado (título, assistido, nota), e cada Filme(...) que eu escrevo é um objeto de verdade guardado na lista. Também entendi o papel do `?` no `int? nota` — é o jeito do Dart aceitar que um filme ainda não tem nota, em vez de me obrigar a inventar um número. Foi a primeira vez que separei dado de tela em pastas diferentes (models e pages).
+
+Task 3 - < 🟡 Média > Troquei o Text da contagem por um ListView.builder na ListaFilmesPage. 
+A virada de chave foi entender que eu não escrevo mais um widget para cada filme na mão, eu só preciso dizer quantos são (com o itemCount) e ensino como montar UM item com itemBuilder, e o Flutter repete isso sozinho para cada índice. Ainda estou com alguns problema no momento de construir a lógica dos builders, mas o Claude me ajudou a entender melhor destravar.

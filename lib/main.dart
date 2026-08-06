@@ -5,6 +5,7 @@ import 'dart:async';
 
 // Cada import conecta este arquivo a uma tela que agora mora em lib/pages/.
 import 'pages/boas_vindas_page.dart';
+import 'pages/lista_filmes_page.dart';
 import 'pages/minhas_coisas_page.dart';
 
 void main() {
@@ -273,6 +274,19 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                     );
                   },
                   child: const Text('Dia da Semana'),
+                ),
+                const SizedBox(height: 30),
+
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ListaFilmesPage(),
+                      ),
+                    );
+                  },
+                  child: const Text('Meus Filmes'),
                 ),
                 const SizedBox(height: 30),
 
