@@ -16,6 +16,7 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
   final List<Filme> filmes = [
     Filme(titulo: 'Sherek 2', nota: 5),
     Filme(titulo: 'Coraline', assistido: true, nota: 4),
+    Filme(titulo: 'Madagascar', nota: 3), // cai na faixa do meio
     Filme(titulo: 'Kung fu Panda 2'), // ainda sem nota
   ];
 
@@ -25,7 +26,7 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
   void adicionarFilme() {
     final texto = controller.text;
     if (texto.isEmpty) {
-      return; // 👉 não adiciona se estiver vazio
+      return; // não adiciona se estiver vazio
     }
     // setState avisa o Flutter que o estado mudou, então ele redesenha a tela.
     setState(() {
@@ -76,7 +77,17 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
               itemBuilder: (context, index) {
                 final filme = filmes[index];
                 return ListTile(
+                  // Toque alterna o assistido. O ! aqui é o operador "não" do bool
+                  // (inverte true/false) — nada a ver com o ! de null-safety.
+                  onTap: () {
+                    setState(() {
+                      filme.assistido = !filme.assistido;
+                    });
+                  },
                   title: Text(filme.titulo),
+                  // nota pode ser nula, então o ?? 0 troca o nulo por 0 antes de
+                  // entrar na função. Usar filme.nota! quebraria o app aqui.
+                  subtitle: Text(classificar(filme.nota ?? 0)),
                   trailing: Icon(
                     filme.assistido ? Icons.check_circle : Icons.movie,
                   ),
