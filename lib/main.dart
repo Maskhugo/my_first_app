@@ -1,6 +1,7 @@
 // Importação dos pacotes fundamentais do Flutter.
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_first_app/pages/imagemInternetPage.dart';
 import 'dart:async';
 
 // Cada import conecta este arquivo a uma tela que agora mora em lib/pages/.
@@ -9,6 +10,7 @@ import 'pages/lista_filmes_page.dart';
 import 'pages/minhas_coisas_page.dart';
 import 'pages/LogoPage.dart';
 import 'pages/PosteresPage.dart';
+import 'pages/imagemInternetPage.dart';
 
 void main() {
   runApp(
@@ -201,7 +203,6 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                 ),
                 const SizedBox(height: 30),
 
-                // Botões de fluxo da Tarefa 4 agrupados
                 ElevatedButton(
                   onPressed: () async {
                     final int? metaEscolhida = await Navigator.push<int>(
@@ -277,6 +278,20 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                   },
                   child: const Text('Dia da Semana'),
                 ),
+                const SizedBox(height: 30),
+
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ImagemInternetPage(),
+                      ),
+                    );
+                  },
+                  child: const Text('Imagem da Internet'),
+                ),
+                
                 const SizedBox(height: 30),
 
                 ElevatedButton(
