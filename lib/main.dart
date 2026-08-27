@@ -8,6 +8,7 @@ import 'pages/boas_vindas_page.dart';
 import 'pages/lista_filmes_page.dart';
 import 'pages/minhas_coisas_page.dart';
 import 'pages/LogoPage.dart';
+import 'pages/PosteresPage.dart';
 
 void main() {
   runApp(
@@ -302,6 +303,20 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                     );
                   },
                   child: const Text('Logo do App'),
+                ),
+
+                const SizedBox(height: 30),
+
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PosteresPage(),
+                      ),
+                    );
+                  },
+                  child: const Text('Pôsteres'),
                 ),
 
                 const SizedBox(height: 30),
