@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants/app-images.dart';
 import '../models/filme.dart';
 
 // A tela virou StatefulWidget porque a lista agora muda enquanto o app roda.
@@ -14,10 +15,24 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
   // Filme é o molde; a List<Filme> guarda vários filmes feitos com esse molde.
   // Agora ela mora no State, e não no build, para não ser recriada a cada redesenho.
   final List<Filme> filmes = [
-    Filme(titulo: 'Sherek 2', nota: 5),
-    Filme(titulo: 'Coraline', assistido: true, nota: 4),
-    Filme(titulo: 'Madagascar', nota: 3), // cai na faixa do meio
-    Filme(titulo: 'Kung fu Panda 2'), // ainda sem nota
+    Filme(titulo: 'Sherek 2', nota: 5, poster: AppImages.posterVerde),
+    Filme(
+      titulo: 'Coraline',
+      assistido: true,
+      nota: 4,
+      poster: AppImages.posterRoxo,
+    ),
+    // cai na faixa do meio
+    Filme(titulo: 'Madagascar', nota: 3, poster: AppImages.posterAzul),
+    // ainda sem nota
+    Filme(titulo: 'Kung fu Panda 2', poster: AppImages.posterVerde),
+  ];
+
+  // Os pôsteres que eu tenho. Os filmes novos vão se revezando entre eles.
+  final List<String> posteres = [
+    AppImages.posterAzul,
+    AppImages.posterRoxo,
+    AppImages.posterVerde,
   ];
 
   // O controller é o fio que liga o TextField ao código: por ele eu leio e limpo o texto.
@@ -30,7 +45,11 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
     }
     // setState avisa o Flutter que o estado mudou, então ele redesenha a tela.
     setState(() {
-      filmes.add(Filme(titulo: texto));
+      // O % (resto da divisão) faz o índice girar 0, 1, 2, 0, 1, 2...
+      // e nunca estourar o tamanho da lista de pôsteres.
+      filmes.add(
+        Filme(titulo: texto, poster: posteres[filmes.length % posteres.length]),
+      );
     });
     controller.clear();
   }
@@ -56,9 +75,7 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
                 Expanded(
                   child: TextField(
                     controller: controller,
-                    decoration: const InputDecoration(
-                      hintText: 'Nome do filme',
-                    ),
+                    decoration: const InputDecoration(hintText: 'Nome do filme'),
                   ),
                 ),
                 IconButton(
@@ -84,6 +101,24 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
                       filme.assistido = !filme.assistido;
                     });
                   },
+                  // Folga vertical para o pôster de 75px não ficar apertado.
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  // leading = o que aparece na ESQUERDA do item.
+                  // ClipRRect é uma tesoura: não desenha nada, só recorta o filho
+                  // com cantos arredondados.
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      filme.poster, // cada filme mostra o pôster DELE
+                      width: 50,
+                      height: 75,
+                      // cover preenche a caixa e corta o excesso, sem distorcer.
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                   title: Text(filme.titulo),
                   // nota pode ser nula, então o ?? 0 troca o nulo por 0 antes de
                   // entrar na função. Usar filme.nota! quebraria o app aqui.
