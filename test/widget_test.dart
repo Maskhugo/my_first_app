@@ -8,7 +8,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:my_first_app/main.dart';
+// O botão 'Ver Nota' saiu do contador e agora é um item da lista de
+// destinos da HomePage, então o teste passou a partir da HomePage.
+import 'package:my_first_app/pages/home_page.dart';
 
 void main() {
   testWidgets('App loads and shows main screen and navigates to NotaPage', (WidgetTester tester) async {
@@ -17,12 +19,12 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
 
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MaterialApp(home: ContadorProdutividade()));
+    await tester.pumpWidget(const MaterialApp(home: HomePage()));
 
     // Verify that the main screen loads.
     expect(find.text('Ver Nota'), findsOneWidget);
 
-    // Scroll to 'Ver Nota' button and tap
+    // Scroll to 'Ver Nota' item and tap
     final buttonFinder = find.text('Ver Nota');
     await tester.ensureVisible(buttonFinder);
     await tester.tap(buttonFinder);

@@ -39,3 +39,17 @@ Task 5 - < 🟡 Média > Gostei bastante desta task pois colocou em pratica a qu
 
 Task bônus - < 🟡 Média > Coloquei um onTap no ListTile que inverte o filme.assistido dentro do setState, então tocar no filme troca o ícone na hora — o setState não serve só para adicionar itens, serve para qualquer mudança de estado que precise aparecer na tela.
 Sobre a diferança entre "final" e "var" en dart: var permite trocar o valor depois, final aceita um valor só uma vez. O final vale para a caixa e não para o conteúdo, e é por isso que o meu final List<Filme> filmes aceita filmes.add(...) sem reclamar, mas recusaria filmes = [outra lista].
+
+---
+
+## Tarefas — Imagens no Flutter 🖼️
+
+Task 1 - < 🟢 Fácil > Foi super tranquilo, é a maneira mais simples de se adicionar uma imagem em uma tela.
+
+Task 2 - < 🟢 Fácil > Ficou muito mais trabalhar com imagens desta forma, uma vez que diminui minhas frustrações por erros de digitação e como fica mais organizado o código.
+
+Task 3 - < 🟢 Fácil > Foi um ótimo exercicio para fazer com que uma imagem preencha de forma correta o espaço sem evitando distorções e sobreposições.
+
+Task 4 - < 🟡 Média > Este me deu um pouco mais de trabalho para entender o código pois ele exige um comportamente caso ele traga algum erro ao tentar trazer a imagem da internet. 
+
+Task 5 - < 🟡 Média > Esse foi o mais dificil dos 5 exercicios muito pela dificuldade ainda com a lógica do código e em implementar os CircleAvatar / ClipRRect no que já estava pronto, mas após alguns erros e com material de apoio consegui concluir a tarefa.
