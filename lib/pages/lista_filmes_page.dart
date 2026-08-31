@@ -75,7 +75,9 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
                 Expanded(
                   child: TextField(
                     controller: controller,
-                    decoration: const InputDecoration(hintText: 'Nome do filme'),
+                    decoration: const InputDecoration(
+                      hintText: 'Nome do filme',
+                    ),
                   ),
                 ),
                 IconButton(

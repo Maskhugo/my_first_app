@@ -8,13 +8,7 @@ class LogoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Logo')),
-      body: Center(
-        child: Image.asset(
-          AppImages.logo,
-          width: 160,
-        ),
-      ),
+      body: Center(child: Image.asset(AppImages.logo, width: 160)),
     );
   }
 }
-

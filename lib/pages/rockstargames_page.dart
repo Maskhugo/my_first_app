@@ -13,7 +13,14 @@ class Rockstargames extends StatelessWidget {
         child: SizedBox(
           width: 200,
           height: 200,
-          child: SvgPicture.asset(AppImages.Rockstar, fit: BoxFit.contain, colorFilter: const ColorFilter.mode(Color.fromARGB(Black), BlendMode.srcIn),),
+          child: SvgPicture.asset(
+            AppImages.Rockstar,
+            fit: BoxFit.contain,
+            colorFilter: const ColorFilter.mode(
+              Color.fromARGB(Black),
+              BlendMode.srcIn,
+            ),
+          ),
         ),
       ),
     );

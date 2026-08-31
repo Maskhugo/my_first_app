@@ -36,13 +36,20 @@ class HomePage extends StatelessWidget {
       icone: Icons.person,
       pagina: BoasVindasPage(),
     ),
-    Destino(titulo: 'Meus Filmes', icone: Icons.movie, pagina: ListaFilmesPage()),
+    Destino(
+      titulo: 'Meus Filmes',
+      icone: Icons.movie,
+      pagina: ListaFilmesPage(),
+    ),
     Destino(
       titulo: 'Minhas Coisas',
       icone: Icons.list_alt,
       pagina: MinhasCoisas(),
     ),
-    Destino(titulo: 'Logo do App', icone: Icons.image, pagina: LogoPage()),
+    Destino(
+      titulo: 'Logo do App',
+      icone: Icons.image,
+      pagina: LogoPage()),
     Destino(
       titulo: 'Pôsteres',
       icone: Icons.photo_library,
@@ -63,8 +70,14 @@ class HomePage extends StatelessWidget {
       icone: Icons.calendar_today,
       pagina: DiaPage(dia: 2),
     ),
-    Destino(titulo: 'Ver Nota', icone: Icons.school, pagina: NotaPage(nota: 7)),
-    Destino(titulo: 'Menu de Níveis', icone: Icons.layers, pagina: MenuPage()),
+    Destino(
+      titulo: 'Ver Nota',
+      icone: Icons.school,
+      pagina: NotaPage(nota: 7)),
+    Destino(
+      titulo: 'Menu de Níveis',
+      icone: Icons.layers,
+      pagina: MenuPage()),
     Destino(
       titulo: 'Sobre o App',
       icone: Icons.info_outline,
