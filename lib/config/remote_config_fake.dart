@@ -22,9 +22,7 @@ class RemoteConfigFake {
 
   /// Os "valores que viriam do servidor".
   /// 👉 Nas próximas tarefas você vai ADICIONAR novas chaves aqui.
-  final Map<String, dynamic> _valores = {
-    'usar_icone_novo': false,
-  };
+  final Map<String, dynamic> _valores = {'usar_icone_novo': false};
 
   /// Lê uma chave booleana. Se a chave não existir, devolve `false`.
   bool getBool(String chave) => _valores[chave] as bool? ?? false;
