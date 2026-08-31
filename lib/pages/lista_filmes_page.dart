@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app-images.dart';
+import '../constants/app_images.dart';
 import '../models/filme.dart';
 
 // A tela virou StatefulWidget porque a lista agora muda enquanto o app roda.
