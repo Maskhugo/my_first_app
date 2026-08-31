@@ -5,4 +5,5 @@ abstract class AppImages {
   static const String posterVerde = 'assets/images/poster_verde.png';
   static const String avatar = 'assets/images/avatar.png';
   static const String Rockstar = 'assets/images/rockstargames.svg';
+  static const String estrela = 'assets/images/ic_estrela.svg';
 }

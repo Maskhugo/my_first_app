@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_first_app/constants/app_images.dart';
 import 'package:my_first_app/constants/app_icons.dart';
+
+
 
 
 class NavegacaoPage extends StatefulWidget {
@@ -12,11 +16,33 @@ class NavegacaoPage extends StatefulWidget {
 class _NavegacaoPageState extends State<NavegacaoPage> {
   int _indice = 0;
 
-  final List<Widget> _telas = const [
-    Center(child: Text('Início')),
-    Center(child: Text('Favoritos')),
-    Center(child: Text('Perfil')),
+  final List<Widget> _telas = [
+    Center(
+      child: SvgPicture.asset(
+        AppImages.estrela,
+        width: 48,
+        height: 48,
+        colorFilter: const ColorFilter.mode(Colors.amber, BlendMode.srcIn),
+      ),
+    ),
+    Center(
+      child: SvgPicture.asset(
+        AppImages.estrela,
+        width: 48,
+        height: 48,
+        colorFilter: const ColorFilter.mode(Colors.blue, BlendMode.srcIn),
+      ),
+    ),
+    Center(
+      child: SvgPicture.asset(
+        AppImages.estrela,
+        width: 48,
+        height: 48,
+        colorFilter: const ColorFilter.mode(Colors.orange, BlendMode.srcIn),
+      ),
+    ),
   ];
+
 
   @override
   Widget build(BuildContext context) {
