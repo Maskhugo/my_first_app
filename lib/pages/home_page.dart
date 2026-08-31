@@ -6,13 +6,14 @@ import '../models/destino.dart';
 import 'boas_vindas_page.dart';
 import 'contador_page.dart';
 import 'exercicios_page.dart';
-import 'imagemInternetPage.dart';
+import 'imagem_internet_page.dart';
 import 'lista_filmes_page.dart';
-import 'LogoPage.dart';
+import 'logo_page.dart';
 import 'minhas_coisas_page.dart';
-import 'PosteresPage.dart';
+import 'posteres_page.dart';
 import 'sobre_page.dart';
-import 'Rockstargames.dart';
+import 'rockstargames_page.dart';
+import 'icones_page.dart';
 
 // A tela inicial do app: um índice de tudo que já foi construído.
 // É StatelessWidget porque ela não guarda estado nenhum — só lista
@@ -87,6 +88,11 @@ class HomePage extends StatelessWidget {
       titulo: 'Rockstar Games SVG',
       icone: Icons.gamepad,
       pagina: Rockstargames(),
+    ),
+    Destino(
+      titulo: 'Ícones',
+      icone: Icons.apps,
+      pagina: IconesPage(),
     ),
   ];
 

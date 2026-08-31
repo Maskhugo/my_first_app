@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/constants/app-images.dart';
+import 'package:my_first_app/constants/app_images.dart';
 
 class PosteresPage extends StatelessWidget {
   const PosteresPage({super.key});
