@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/constants/app_icons.dart';
 
 
 class NavegacaoPage extends StatefulWidget {
@@ -26,18 +27,18 @@ class _NavegacaoPageState extends State<NavegacaoPage> {
         onTap: (novoIndice) => setState(() => _indice = novoIndice),
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),   // vazado (inativo)
-            activeIcon: Icon(Icons.home),      // preenchido (ativo)
+            icon: Icon(AppIcons.inicioVazado),   // vazado (inativo)
+            activeIcon: Icon(AppIcons.inicio),      // preenchido (ativo)
             label: 'Início',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            activeIcon: Icon(Icons.favorite),
+            icon: Icon(AppIcons.favoritoVazado),
+            activeIcon: Icon(AppIcons.favorito),
             label: 'Favoritos',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            activeIcon: Icon(Icons.person),
+            icon: Icon(AppIcons.perfilVazado),
+            activeIcon: Icon(AppIcons.perfil),
             label: 'Perfil',
           ),
         ],
