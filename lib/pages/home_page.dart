@@ -14,6 +14,7 @@ import 'posteres_page.dart';
 import 'sobre_page.dart';
 import 'rockstargames_page.dart';
 import 'icones_page.dart';
+import 'navegacao_page.dart';
 
 // A tela inicial do app: um índice de tudo que já foi construído.
 // É StatelessWidget porque ela não guarda estado nenhum — só lista
@@ -93,6 +94,11 @@ class HomePage extends StatelessWidget {
       titulo: 'Ícones',
       icone: Icons.apps,
       pagina: IconesPage(),
+    ),
+    Destino(
+      titulo: 'Navegação Inferior',
+      icone: Icons.navigation,
+      pagina: NavegacaoPage(),
     ),
   ];
 
