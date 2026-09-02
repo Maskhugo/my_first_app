@@ -53,3 +53,23 @@ Task 3 - < 🟢 Fácil > Foi um ótimo exercicio para fazer com que uma imagem p
 Task 4 - < 🟡 Média > Este me deu um pouco mais de trabalho para entender o código pois ele exige um comportamente caso ele traga algum erro ao tentar trazer a imagem da internet. 
 
 Task 5 - < 🟡 Média > Esse foi o mais dificil dos 5 exercicios muito pela dificuldade ainda com a lógica do código e em implementar os CircleAvatar / ClipRRect no que já estava pronto, mas após alguns erros e com material de apoio consegui concluir a tarefa.
+
+---
+
+## Ícones no Flutter (jeito Clickbus) ✨
+
+Task 0 - < 🟢 Fácil > - Não tem muito o que dizer, foi bem simples e me ajudou a entender que existe um padrão Snake case para os arquivos do projeto da clickbus.
+
+Task 1 - < 🟢 Fácil > - Foi um ótimo exercicio para lidar com varios tipos de icons e configurar corretamente iconbuttons. 
+
+Task 2 - < 🟢 Fácil > - Exercicio me ajudou a exercitar essas outras possibilidades de buttons na app bar e como tile list.
+
+Task 3 - < 🟢 Fácil > Me ajudou muito a entender como criar as abas de navegação com um icone que alterna de vazado para preenchido.
+
+Task 4 - < 🟢 Fácil > Assim como as imagens em outras tarefas, foi legal ver que existe um padrão de utilizar esses assets como constantes, ajuda a deixar o projeto mais facil de se trabalhar.
+
+Task 5 - < 🟢 Fácil > - Foi uma tarefa bem simples, me ensinou as possibilidades que o um arquivo svg pode ser facilmente manipulavel dentro do código.
+
+Task 6 - < 🟡 Média > - Esta tarefa me deu um pouco mais de trabalho para implementar, apesar de entender o conceito acho que vale eu estudar um pouco mais o código.
+
+Task 7 - < 🟢 Fácil > -

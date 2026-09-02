@@ -17,6 +17,10 @@ class _IconeRemotoPageState extends State<IconeRemotoPage> {
   // ele não muda mais enquanto esta tela estiver viva.
   late final bool _usarIconeNovo;
 
+  // A configuração não decide só coisas de ligar/desligar: ela também manda
+  // textos. Mesma regra do campo acima — late + final.
+  late final String _textoDoBotao;
+
   @override
   void initState() {
     super.initState();
@@ -24,6 +28,7 @@ class _IconeRemotoPageState extends State<IconeRemotoPage> {
     // rebuild da tela, e ficar consultando a configuração lá desperdiça
     // trabalho e pode fazer a interface piscar se o valor mudar no meio.
     _usarIconeNovo = RemoteConfigFake.instance.getUsarIconeNovo();
+    _textoDoBotao = RemoteConfigFake.instance.getTextoDoBotao();
   }
 
   @override
@@ -33,7 +38,21 @@ class _IconeRemotoPageState extends State<IconeRemotoPage> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Ícone remoto')),
-      body: Center(child: Icon(icone, size: 80)),
+      body: Center(
+        // A Column empilha os filhos de cima para baixo. Sem o
+        // mainAxisAlignment.center ela ocuparia a altura toda e o conteúdo
+        // ficaria colado no topo, mesmo dentro do Center.
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icone, size: 80),
+            const SizedBox(height: 24),
+            // Repare: sem `const` antes do Text. O valor só é conhecido
+            // quando o app roda, e `const` exige um valor fixo já na compilação.
+            ElevatedButton(onPressed: () {}, child: Text(_textoDoBotao)),
+          ],
+        ),
+      ),
     );
   }
 }
