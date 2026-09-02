@@ -22,7 +22,10 @@ class RemoteConfigFake {
 
   /// Os "valores que viriam do servidor".
   /// 👉 Nas próximas tarefas você vai ADICIONAR novas chaves aqui.
-  final Map<String, dynamic> _valores = {'usar_icone_novo': true};
+  final Map<String, dynamic> _valores = {
+    'usar_icone_novo': false,
+    'texto_do_botao': 'teste de botão remoto',
+  };
 
   /// Lê uma chave booleana. Se a chave não existir, devolve `false`.
   bool getBool(String chave) => _valores[chave] as bool? ?? false;
@@ -33,4 +36,10 @@ class RemoteConfigFake {
   /// Getter nomeado de exemplo (estilo `RemoteConfigHelper`): um método por flag.
   /// Deixa o código de quem usa mais limpo: `RemoteConfigFake.instance.getUsarIconeNovo()`.
   bool getUsarIconeNovo() => getBool('usar_icone_novo');
+
+  /// Mesmo padrão do getter acima, agora para um texto: o nome da chave
+  /// (`'texto_do_botao'`) fica escrito UMA vez, aqui dentro. Quem usa chama
+  /// `getTextoDoBotao()` e não corre o risco de digitar a chave errada —
+  /// um erro de digitação aqui viraria `''` silenciosamente, sem erro de compilação.
+  String getTextoDoBotao() => getString('texto_do_botao');
 }
