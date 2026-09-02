@@ -72,4 +72,6 @@ Task 5 - < 🟢 Fácil > - Foi uma tarefa bem simples, me ensinou as possibilida
 
 Task 6 - < 🟡 Média > - Esta tarefa me deu um pouco mais de trabalho para implementar, apesar de entender o conceito acho que vale eu estudar um pouco mais o código.
 
-Task 7 - < 🟢 Fácil > -
+Task 7 - < 🟢 Fácil > - Como foi apenas necessário configurar, esta tarefa foi um pouco mais simples que a anterior.
+
+Task 8 - < 🟢 Fácil > -
