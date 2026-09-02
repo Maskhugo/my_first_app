@@ -3,9 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_first_app/constants/app_images.dart';
 import 'package:my_first_app/constants/app_icons.dart';
 
-
-
-
 class NavegacaoPage extends StatefulWidget {
   const NavegacaoPage({super.key});
 
@@ -43,7 +40,6 @@ class _NavegacaoPageState extends State<NavegacaoPage> {
     ),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,8 +49,8 @@ class _NavegacaoPageState extends State<NavegacaoPage> {
         onTap: (novoIndice) => setState(() => _indice = novoIndice),
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(AppIcons.inicioVazado),   // vazado (inativo)
-            activeIcon: Icon(AppIcons.inicio),      // preenchido (ativo)
+            icon: Icon(AppIcons.inicioVazado), // vazado (inativo)
+            activeIcon: Icon(AppIcons.inicio), // preenchido (ativo)
             label: 'Início',
           ),
           BottomNavigationBarItem(

@@ -11,11 +11,15 @@ class IconesPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
-            onPressed: () {/* 👉 mostre um SnackBar 'Buscar' */},
+            onPressed: () {
+              /* 👉 mostre um SnackBar 'Buscar' */
+            },
           ),
           IconButton(
             icon: const Icon(Icons.more_vert),
-            onPressed: () {/* 👉 SnackBar 'Menu' */},
+            onPressed: () {
+              /* 👉 SnackBar 'Menu' */
+            },
           ),
         ],
       ),
@@ -33,7 +37,7 @@ class IconesPage extends StatelessWidget {
                 );
               },
             ),
-            
+
             ListTile(
               leading: const Icon(Icons.gamepad),
               title: const Text('Play'),
@@ -48,7 +52,7 @@ class IconesPage extends StatelessWidget {
             const SizedBox(height: 24),
             const Icon(Icons.star, size: 40, color: Colors.amber),
             const SizedBox(height: 24),
-            
+
             IconButton(
               iconSize: 40,
               onPressed: () {
@@ -68,7 +72,6 @@ class IconesPage extends StatelessWidget {
               },
               icon: const Icon(Icons.thumb_down),
             ),
-            
           ],
         ),
       ),

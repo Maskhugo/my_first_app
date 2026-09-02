@@ -15,6 +15,7 @@ import 'sobre_page.dart';
 import 'rockstargames_page.dart';
 import 'icones_page.dart';
 import 'navegacao_page.dart';
+import 'icone_remoto_page.dart';
 
 // A tela inicial do app: um índice de tudo que já foi construído.
 // É StatelessWidget porque ela não guarda estado nenhum — só lista
@@ -48,10 +49,7 @@ class HomePage extends StatelessWidget {
       icone: Icons.list_alt,
       pagina: MinhasCoisas(),
     ),
-    Destino(
-      titulo: 'Logo do App',
-      icone: Icons.image,
-      pagina: LogoPage()),
+    Destino(titulo: 'Logo do App', icone: Icons.image, pagina: LogoPage()),
     Destino(
       titulo: 'Pôsteres',
       icone: Icons.photo_library,
@@ -72,14 +70,8 @@ class HomePage extends StatelessWidget {
       icone: Icons.calendar_today,
       pagina: DiaPage(dia: 2),
     ),
-    Destino(
-      titulo: 'Ver Nota',
-      icone: Icons.school,
-      pagina: NotaPage(nota: 7)),
-    Destino(
-      titulo: 'Menu de Níveis',
-      icone: Icons.layers,
-      pagina: MenuPage()),
+    Destino(titulo: 'Ver Nota', icone: Icons.school, pagina: NotaPage(nota: 7)),
+    Destino(titulo: 'Menu de Níveis', icone: Icons.layers, pagina: MenuPage()),
     Destino(
       titulo: 'Sobre o App',
       icone: Icons.info_outline,
@@ -90,15 +82,16 @@ class HomePage extends StatelessWidget {
       icone: Icons.gamepad,
       pagina: Rockstargames(),
     ),
-    Destino(
-      titulo: 'Ícones',
-      icone: Icons.apps,
-      pagina: IconesPage(),
-    ),
+    Destino(titulo: 'Ícones', icone: Icons.apps, pagina: IconesPage()),
     Destino(
       titulo: 'Navegação Inferior',
       icone: Icons.navigation,
       pagina: NavegacaoPage(),
+    ),
+    Destino(
+      titulo: 'Ícone Remoto',
+      icone: Icons.settings_remote,
+      pagina: IconeRemotoPage(),
     ),
   ];
 
