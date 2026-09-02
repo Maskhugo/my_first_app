@@ -74,4 +74,6 @@ Task 6 - < 🟡 Média > - Esta tarefa me deu um pouco mais de trabalho para imp
 
 Task 7 - < 🟢 Fácil > - Como foi apenas necessário configurar, esta tarefa foi um pouco mais simples que a anterior.
 
-Task 8 - < 🟢 Fácil > -
+Task 8 - < 🟡 Média > - Como o código está ficando um pouco mais complexo eu me perco um pouco em acompanhar a lógica do código, mas ajudou muito a fixar o conceito de teste ab.
+
+Task 9 - < 🟡 Média > - como a task anterior, o código a cada vez que fica mais complexo me vejo un pouco perdido mesmo sabendo a logica de como o código funciona, e foi muito legal ver que a string traz mais possibilidade do que um tratar o remote config apenas como booleano. 

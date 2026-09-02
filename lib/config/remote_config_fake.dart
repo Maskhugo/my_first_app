@@ -26,6 +26,7 @@ class RemoteConfigFake {
     'usar_icone_novo': false,
     'texto_do_botao': 'teste de botão remoto',
     'variante_icone_ab': 'B', // 'A' ou 'B'
+    'icone_botao_comprar': 'sacola', // 'carrinho' | 'sacola' | 'dinheiro'
   };
 
   /// Lê uma chave booleana. Se a chave não existir, devolve `false`.
@@ -38,9 +39,11 @@ class RemoteConfigFake {
   /// Deixa o código de quem usa mais limpo: `RemoteConfigFake.instance.getUsarIconeNovo()`.
   bool getUsarIconeNovo() => getBool('usar_icone_novo');
 
-  
   String getTextoDoBotao() => getString('texto_do_botao');
 
-  
   String getVarianteIconeAb() => getString('variante_icone_ab');
+
+  /// Aqui a configuração manda o NOME de uma variante, não um liga/desliga.
+  /// Um bool só teria 2 estados; um texto permite quantas variantes eu quiser.
+  String getIconeBotaoComprar() => getString('icone_botao_comprar');
 }

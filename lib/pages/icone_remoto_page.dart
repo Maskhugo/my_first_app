@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../config/remote_config_fake.dart';
 
+// De-para: nome da variante -> ícone.
+// Fica fora da classe porque essa tabela é a mesma para todo mundo, sempre;
+// e é const porque o valor já é conhecido na compilação — o Dart monta esse
+// Map uma única vez, em vez de recriá-lo a cada tela que nasce.
+const Map<String, IconData> iconesComprar = {
+  'carrinho': Icons.shopping_cart,
+  'sacola': Icons.shopping_bag,
+  'dinheiro': Icons.attach_money,
+};
+
 // Esta tela não guarda nada que o usuário mude — mesmo assim ela é um
 // StatefulWidget. O motivo é único: só o StatefulWidget tem initState(),
 // e é lá que se lê uma configuração que vem de fora do app.
@@ -26,6 +36,10 @@ class _IconeRemotoPageState extends State<IconeRemotoPage> {
   // números medidos não valeriam nada.
   late final String _variante;
 
+  // O ícone do botão Comprar. Não guardo o texto que veio da configuração,
+  // e sim o ícone já escolhido: a tradução acontece uma vez só, no initState.
+  late final IconData _iconeComprar;
+
   // A MÉTRICA do experimento: quantas vezes o ícone foi tocado.
   // Este SIM é um estado que muda, então é um int normal (sem final) e
   // toda mudança dele passa pelo setState.
@@ -40,6 +54,12 @@ class _IconeRemotoPageState extends State<IconeRemotoPage> {
     _usarIconeNovo = RemoteConfigFake.instance.getUsarIconeNovo();
     _textoDoBotao = RemoteConfigFake.instance.getTextoDoBotao();
     _variante = RemoteConfigFake.instance.getVarianteIconeAb();
+
+    final nome = RemoteConfigFake.instance.getIconeBotaoComprar();
+    // Se vier uma string que eu não conheço, caio no carrinho (fallback seguro).
+    // O valor vem de fora do app: um erro de digitação no painel não pode
+    // virar um app quebrado na mão de quem já baixou.
+    _iconeComprar = iconesComprar[nome] ?? Icons.shopping_cart;
   }
 
   @override
@@ -78,6 +98,17 @@ class _IconeRemotoPageState extends State<IconeRemotoPage> {
             // O que o time compararia no fim do experimento: os toques da
             // variante A contra os da variante B. Ganha quem tiver mais.
             Text('Variante $_variante — $_toques toques'),
+            const SizedBox(height: 24),
+            // ElevatedButton.icon é um construtor nomeado: em vez de um child,
+            // ele recebe icon + label e cuida do espaçamento entre os dois.
+            ElevatedButton.icon(
+              onPressed: () {
+                /* ação de comprar */
+              },
+              // Sem const no Icon: o ícone só é conhecido quando o app roda.
+              icon: Icon(_iconeComprar),
+              label: const Text('Comprar'),
+            ),
           ],
         ),
       ),
