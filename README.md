@@ -30,7 +30,7 @@ Abaixo está a lista dos widgets já desenvolvidos ou em andamento. Legenda: `[x
 
 ### 🟩 Widgets Básicos
 - [x] **Text & TextStyle:** fontSize, fontWeight, color, textAlign — presente em praticamente todas as telas.
-- [ ] **RichText & TextSpan:** vários estilos dentro de um mesmo parágrafo.
+- [x] **RichText & TextSpan:** vários estilos dentro de um mesmo parágrafo — `sobre_page.dart`.
 - [x] **Container & Padding:** `BoxDecoration` com color, `borderRadius` e `boxShadow`; `EdgeInsets` nas variações `all`, `symmetric` e `only` — `contador_page.dart`.
 - [x] **Rows & Columns:** `Row`, `Column`, `Expanded`, `mainAxisAlignment` / `crossAxisAlignment` e `SizedBox` como espaçador — `lista_filmes_page.dart`, `PosteresPage.dart`.
 - [x] **SafeArea & SingleChildScrollView:** respeitar as áreas do sistema e rolar conteúdo maior que a tela.
@@ -45,7 +45,7 @@ Abaixo está a lista dos widgets já desenvolvidos ou em andamento. Legenda: `[x
 - [x] **ListView & ListView.builder:** `itemCount` + `itemBuilder` para listas dinâmicas — `home_page.dart`, `lista_filmes_page.dart`, `exercicios_page.dart`.
 - [ ] **GridView:** grids de elementos.
 - [x] **ListTile:** `leading`, `title`, `subtitle`, `trailing`, `onTap` e `contentPadding`.
-- [ ] **Card:** elevação e `RoundedRectangleBorder` herdados do tema.
+- [x] **Card:** elevação e `RoundedRectangleBorder` herdados do tema — `home_page.dart`.
 
 ### 🖼️ Imagens
 - [x] **Image.asset + declaração de assets no `pubspec.yaml`.**
@@ -54,7 +54,7 @@ Abaixo está a lista dos widgets já desenvolvidos ou em andamento. Legenda: `[x
 - [x] **ClipRRect:** recorte com cantos arredondados.
 - [x] **CircleAvatar + AssetImage:** avatar redondo sem recorte manual.
 - [x] **Image.network:** com `loadingBuilder` (spinner) e `errorBuilder` (fallback).
-- [ ] 🚧 **SVG com `flutter_svg`:** `SvgPicture.asset` e troca de cor em tempo de execução via `colorFilter`.
+- [x] **SVG com `flutter_svg`:** `SvgPicture.asset` e troca de cor em tempo de execução via `colorFilter` — `rockstargames_page.dart`.
 
 ### 🧭 Navegação e Estado
 - [x] **Navigator.push + MaterialPageRoute:** empilhar telas.

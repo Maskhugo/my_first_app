@@ -109,16 +109,23 @@ class HomePage extends StatelessWidget {
           itemBuilder: (context, index) {
             final destino = _destinos[index];
 
-            return ListTile(
-              leading: Icon(destino.icone),
-              title: Text(destino.titulo, style: const TextStyle(fontSize: 18)),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => destino.pagina),
-                );
-              },
+            return Card(
+              margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              child: ListTile(
+                leading: Icon(destino.icone),
+                title: Text(
+                  destino.titulo,
+                  style: const TextStyle(fontSize: 18),
+                ),
+                trailing: const Icon(Icons.chevron_right),
+
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => destino.pagina),
+                  );
+                },
+              ),
             );
           },
         ),
