@@ -48,20 +48,28 @@ class _RockstargamesState extends State<Rockstargames> {
             // selecionado (groupValue) e o que fazer quando muda
             // (onChanged). Os RadioListTile filhos só precisam dizer qual
             // "value" cada um representa — o grupo cuida do resto.
-            RadioGroup<Color>(
-              groupValue: _corSelecionada,
-              onChanged: (Color? novaCor) {
-                if (novaCor == null) return;
-                setState(() => _corSelecionada = novaCor);
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: _opcoesDeCor.entries.map((opcao) {
-                  return RadioListTile<Color>(
-                    title: Text(opcao.key),
-                    value: opcao.value,
-                  );
-                }).toList(),
+            
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 238, 238, 238),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: RadioGroup<Color>(
+                groupValue: _corSelecionada,
+                onChanged: (Color? novaCor) {
+                  if (novaCor == null) return;
+                  setState(() => _corSelecionada = novaCor);
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: _opcoesDeCor.entries.map((opcao) {
+                    return RadioListTile<Color>(
+                      title: Text(opcao.key),
+                      value: opcao.value,
+                    );
+                  }).toList(),
+                ),
               ),
             ),
           ],
