@@ -72,7 +72,6 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(vertical: 20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -85,12 +84,6 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                     color: Color.fromARGB(255, 8, 0, 255),
                   ),
                   textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'Toque no quadro verde para Iniciar.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, color: Color(0xFF333333)),
                 ),
                 const SizedBox(height: 30),
 
@@ -179,20 +172,44 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                         child: Divider(thickness: 1),
                       ),
                       _buildMetricRow(
-                        'Projeção por hora:',
+                        'Projeção:',
                         '$_projectedPerHour inputs/hora',
                         true,
                       ),
                     ],
                   ),
                 ),
+                
                 const SizedBox(height: 30),
 
-                // Os botões daqui para baixo continuaram nesta tela porque
-                // todos dependem do estado do contador (_metaSelecionada e
-                // _inputs). Os botões que eram só caminho de tela foram para
-                // a lista de destinos da HomePage.
                 ElevatedButton(
+                  onPressed: _reset,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 178, 0, 0),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 100,
+                      vertical: 20,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  child: const Text('Zerar', style: TextStyle(fontSize: 20)),
+                ),
+                
+                const SizedBox(height: 30),
+
+                Container(
+                    padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                            color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                  ),
+                                    child: Column(
+                                          mainAxisSize: MainAxisSize.min, // importante, ver nota abaixo
+                                              children: [
+                                                ElevatedButton(
                   onPressed: () async {
                     final int? metaEscolhida = await Navigator.push<int>(
                       context,
@@ -242,24 +259,19 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                   },
                   child: const Text('Confira seu resultado'),
                 ),
+      // os 3 botões entram aqui
+    ],
+  ),
+),
+
+
+                // Os botões daqui para baixo continuaram nesta tela porque
+                // todos dependem do estado do contador (_metaSelecionada e
+                // _inputs). Os botões que eram só caminho de tela foram para
+                // a lista de destinos da HomePage.
+                
                 const SizedBox(height: 30),
 
-                ElevatedButton(
-                  onPressed: _reset,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 178, 0, 0),
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 15,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  child: const Text('Zerar', style: TextStyle(fontSize: 16)),
-                ),
-                const SizedBox(height: 30), // Espaçamento final
               ],
             ),
           ),
