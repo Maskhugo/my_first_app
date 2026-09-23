@@ -179,7 +179,7 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                     ],
                   ),
                 ),
-                
+
                 const SizedBox(height: 30),
 
                 ElevatedButton(
@@ -197,81 +197,79 @@ class _ContadorProdutividadeState extends State<ContadorProdutividade> {
                   ),
                   child: const Text('Zerar', style: TextStyle(fontSize: 20)),
                 ),
-                
+
                 const SizedBox(height: 30),
 
                 Container(
-                    padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                            color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                  ),
-                                    child: Column(
-                                          mainAxisSize: MainAxisSize.min, // importante, ver nota abaixo
-                                              children: [
-                                                ElevatedButton(
-                  onPressed: () async {
-                    final int? metaEscolhida = await Navigator.push<int>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const EscolherMetaPage(),
-                      ),
-                    );
-                    if (metaEscolhida != null) {
-                      setState(() {
-                        _metaSelecionada = metaEscolhida;
-                      });
-                    }
-                  },
-                  child: Text(
-                    _metaSelecionada == null
-                        ? 'Definir meta'
-                        : 'Meta atual: $_metaSelecionada',
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                ),
-                const SizedBox(height: 10),
+                  child: Column(
+                    mainAxisSize:
+                        MainAxisSize.min, // importante, ver nota abaixo
+                    children: [
+                      ElevatedButton(
+                        onPressed: () async {
+                          final int? metaEscolhida = await Navigator.push<int>(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const EscolherMetaPage(),
+                            ),
+                          );
+                          if (metaEscolhida != null) {
+                            setState(() {
+                              _metaSelecionada = metaEscolhida;
+                            });
+                          }
+                        },
+                        child: Text(
+                          _metaSelecionada == null
+                              ? 'Definir meta'
+                              : 'Meta atual: $_metaSelecionada',
+                        ),
+                      ),
+                      const SizedBox(height: 10),
 
-                ElevatedButton(
-                  onPressed: _metaSelecionada == null
-                      ? null
-                      : () {
+                      ElevatedButton(
+                        onPressed: _metaSelecionada == null
+                            ? null
+                            : () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        ProgressoPage(meta: _metaSelecionada!),
+                                  ),
+                                );
+                              },
+                        child: const Text('Ver Progresso'),
+                      ),
+                      const SizedBox(height: 10),
+
+                      OutlinedButton(
+                        onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  ProgressoPage(meta: _metaSelecionada!),
+                                  PaginaResultado(totalInputs: _inputs),
                             ),
                           );
                         },
-                  child: const Text('Ver Progresso'),
-                ),
-                const SizedBox(height: 10),
-
-                OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            PaginaResultado(totalInputs: _inputs),
+                        child: const Text('Confira seu resultado'),
                       ),
-                    );
-                  },
-                  child: const Text('Confira seu resultado'),
+                      // os 3 botões entram aqui
+                    ],
+                  ),
                 ),
-      // os 3 botões entram aqui
-    ],
-  ),
-),
-
 
                 // Os botões daqui para baixo continuaram nesta tela porque
                 // todos dependem do estado do contador (_metaSelecionada e
                 // _inputs). Os botões que eram só caminho de tela foram para
                 // a lista de destinos da HomePage.
-                
                 const SizedBox(height: 30),
-
               ],
             ),
           ),
