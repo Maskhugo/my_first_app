@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/constants/app-images.dart';
+import 'package:my_first_app/constants/app_images.dart';
 
 class LogoPage extends StatelessWidget {
   const LogoPage({super.key});
@@ -8,13 +8,7 @@ class LogoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Logo')),
-      body: Center(
-        child: Image.asset(
-          AppImages.logo,
-          width: 160,
-        ),
-      ),
+      body: Center(child: Image.asset(AppImages.logo, width: 160)),
     );
   }
 }
-

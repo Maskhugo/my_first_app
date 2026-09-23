@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_first_app/constants/app-images.dart';
+import 'package:my_first_app/constants/app_images.dart';
 
 // Virou StatefulWidget porque agora a tela guarda uma informação que muda
 // com a interação do usuário: qual cor está selecionada no radio button.

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app-images.dart';
+import '../constants/app_images.dart';
 
 class BoasVindasPage extends StatelessWidget {
   const BoasVindasPage({super.key});

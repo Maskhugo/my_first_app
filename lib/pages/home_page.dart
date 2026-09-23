@@ -6,13 +6,16 @@ import '../models/destino.dart';
 import 'boas_vindas_page.dart';
 import 'contador_page.dart';
 import 'exercicios_page.dart';
-import 'imagemInternetPage.dart';
+import 'imagem_internet_page.dart';
 import 'lista_filmes_page.dart';
-import 'LogoPage.dart';
+import 'logo_page.dart';
 import 'minhas_coisas_page.dart';
-import 'PosteresPage.dart';
+import 'posteres_page.dart';
 import 'sobre_page.dart';
-import 'Rockstargames.dart';
+import 'rockstargames_page.dart';
+import 'icones_page.dart';
+import 'navegacao_page.dart';
+import 'icone_remoto_page.dart';
 
 // A tela inicial do app: um índice de tudo que já foi construído.
 // É StatelessWidget porque ela não guarda estado nenhum — só lista
@@ -36,7 +39,11 @@ class HomePage extends StatelessWidget {
       icone: Icons.person,
       pagina: BoasVindasPage(),
     ),
-    Destino(titulo: 'Meus Filmes', icone: Icons.movie, pagina: ListaFilmesPage()),
+    Destino(
+      titulo: 'Meus Filmes',
+      icone: Icons.movie,
+      pagina: ListaFilmesPage(),
+    ),
     Destino(
       titulo: 'Minhas Coisas',
       icone: Icons.list_alt,
@@ -74,6 +81,17 @@ class HomePage extends StatelessWidget {
       titulo: 'Rockstar Games SVG',
       icone: Icons.gamepad,
       pagina: Rockstargames(),
+    ),
+    Destino(titulo: 'Ícones', icone: Icons.apps, pagina: IconesPage()),
+    Destino(
+      titulo: 'Navegação Inferior',
+      icone: Icons.navigation,
+      pagina: NavegacaoPage(),
+    ),
+    Destino(
+      titulo: 'Ícone Remoto',
+      icone: Icons.settings_remote,
+      pagina: IconeRemotoPage(),
     ),
   ];
 

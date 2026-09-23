@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/constants/app-images.dart';
+import 'package:my_first_app/constants/app_images.dart';
 
 class PosteresPage extends StatelessWidget {
   const PosteresPage({super.key});
@@ -7,7 +7,7 @@ class PosteresPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text ('Pôsteres')),
+      appBar: AppBar(title: const Text('Pôsteres')),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -15,7 +15,7 @@ class PosteresPage extends StatelessWidget {
             SizedBox(
               width: 100,
               height: 150,
-              child: Image.asset(AppImages.posterAzul, fit:BoxFit.fill),
+              child: Image.asset(AppImages.posterAzul, fit: BoxFit.fill),
             ),
             const SizedBox(width: 8),
             SizedBox(
