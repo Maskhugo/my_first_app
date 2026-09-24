@@ -16,6 +16,7 @@ import 'rockstargames_page.dart';
 import 'icones_page.dart';
 import 'navegacao_page.dart';
 import 'icone_remoto_page.dart';
+import 'pokemon_page.dart';
 
 // A tela inicial do app: um índice de tudo que já foi construído.
 // É StatelessWidget porque ela não guarda estado nenhum — só lista
@@ -92,6 +93,11 @@ class HomePage extends StatelessWidget {
       titulo: 'Ícone Remoto',
       icone: Icons.settings_remote,
       pagina: IconeRemotoPage(),
+    ),
+    Destino(
+      titulo: 'Pokémons (API pública)',
+      icone: Icons.catching_pokemon,
+      pagina: PokemonPage(),
     ),
   ];
 

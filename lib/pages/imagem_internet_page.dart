@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 class ImagemInternetPage extends StatelessWidget {
   const ImagemInternetPage({super.key});
 
+ @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
